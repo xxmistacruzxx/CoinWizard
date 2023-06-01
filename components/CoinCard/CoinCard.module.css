@@ -1,0 +1,23 @@
+.infoDisplay div {
+  width: 25%;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: background-color 200ms;
+}
+
+.infoDisplay div:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.infoDisplay div p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: x-small;
+}

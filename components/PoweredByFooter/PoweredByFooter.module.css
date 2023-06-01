@@ -1,0 +1,34 @@
+.PoweredByFooter {
+  margin: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.PoweredByFooter a {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  transition: background-color 200ms;
+}
+
+.PoweredByFooter a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.PoweredByFooter a img {
+  width: 32px;
+  height: 32px;
+}
+
+.PoweredByFooter a p {
+  margin-left: 15px;
+  text-decoration: none;
+  color: var(--text-color2);
+}

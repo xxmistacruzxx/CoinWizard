@@ -1,38 +1,25 @@
-html,
+:root {
+  --background-color1: #11001c;
+  --text-color1: white;
+  --text-color2: #e0e0e0;
+  --text-color3: red;
+  --text-color4: rgb(0, 255, 0);
+}
+
 body {
-  padding: 0;
-  margin: 0;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: var(--text-color1);
+  background: var(--background-color1);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.pageContainer {
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-h1,
-h2,
-p,
-ul {
-  margin: 0;
-}
-
-ul {
-  padding: 0;
-  list-style: none;
-}
-
-button {
-  padding: 0.5rem 1rem;
-  font-weight: bold;
+@media only screen and (max-width: 600px) {
+  .pageContainer {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }
