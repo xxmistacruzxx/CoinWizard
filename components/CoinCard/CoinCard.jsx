@@ -1,8 +1,8 @@
-import { Card, Divider, Text } from "@nextui-org/react";
-import styles from "./CoinCard.module.css";
-
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { Card } from "@nextui-org/react";
+
+import styles from "./CoinCard.module.css";
 
 export default function CoinCard({ coin }) {
   // CREATE VARIABLES
