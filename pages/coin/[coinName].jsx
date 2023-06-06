@@ -1,7 +1,5 @@
 import axios from "axios";
 import { marked } from "marked";
-// import { cryptocomparekey } from "../../keys.js";
-import keys from "../../config.json";
 
 import styles from "../../styles/coinPage.module.css";
 import Header from "../../components/Header/Header.jsx";
@@ -180,7 +178,7 @@ export async function getServerSideProps(context) {
 
   // GETTING BLOCKCHAIN
   response = await axios.get(
-    `https://min-api.cryptocompare.com/data/blockchain/latest?fsym=${coinName}&api_key=${keys["cryptocompare"]}`
+    `https://min-api.cryptocompare.com/data/blockchain/latest?fsym=${coinName}&api_key=${process.env.cryptocompare}`
   );
   response = response.data.Data;
   coinData = {
