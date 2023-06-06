@@ -1,0 +1,88 @@
+.coinContainer {
+  margin-top: 20px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 25px;
+}
+
+.coinContainer div h2 {
+  font-size: 2em;
+}
+
+.coinHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.coinHeader div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.coinHeader img {
+  width: 96px;
+  aspect-ratio: 1/1;
+}
+
+.coinHeader div p {
+  max-width: 250px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8em;
+}
+
+.quickFacts {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.quickFacts div {
+  flex: 1 0 25%;
+  background-color: rgba(255, 255, 255, 0.04);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 15px;
+}
+
+.quickFacts div:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.quickFacts div p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.quickFacts div :first-child {
+  color: var(--text-color2);
+  font-size: 1em;
+}
+
+.quickFacts div :nth-child(2) {
+  font-size: 1.5em;
+}
+
+.coinMarketHistory {
+  width: 100%;
+  height: 300px;
+}
+
+.coinAbout p {
+  text-indent: 3em;
+}
+
+.coinAbout a {
+  color: var(--text-color5);
+  text-decoration: none;
+}

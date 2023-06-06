@@ -15,6 +15,7 @@
   align-items: center;
   padding-left: 15px;
   padding-right: 15px;
+  text-decoration: none;
   transition: background-color 200ms;
 }
 
@@ -29,6 +30,5 @@
 
 .PoweredByFooter a p {
   margin-left: 15px;
-  text-decoration: none;
   color: var(--text-color2);
 }

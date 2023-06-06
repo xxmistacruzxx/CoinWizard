@@ -15,13 +15,12 @@ export default function CoinCard({ coin }) {
   const [perc24, setPerc24] = useState("");
   const [perc24Color, setPerc24Color] = useState("var(--text-color4)");
   const [cardInfo, setCardInfo] = useState({
-    marketCap: { value: "", color: "var(--text-color2)" },
-    volume24h: { value: "", color: "var(--text-color2)" },
-    circulatingSupply: { value: "", color: "var(--text-color2)" },
+    marketCap: { value: "" },
     priceChange1h: { value: "", color: "var(--text-color3)" },
     priceChange24h: { value: "", color: "var(--text-color3)" },
-    priceChange7d: { value: "", color: "var(--text-color3)" },
-    volume1h: { value: "", color: "var(--text-color2)" },
+    circulatingSupply: { value: "" },
+    volume1h: { value: "" },
+    volume24h: { value: "" },
   });
 
   // MAKE REQUEST AND SET VALUES
@@ -41,15 +40,6 @@ export default function CoinCard({ coin }) {
       setCardInfo({
         marketCap: {
           value: `${displayData["MKTCAP"]}`,
-          color: "var(--text-color2)",
-        },
-        volume24h: {
-          value: `${displayData["VOLUME24HOUR"]}`,
-          color: "var(--text-color2)",
-        },
-        circulatingSupply: {
-          value: `${displayData["CIRCULATINGSUPPLY"]}`,
-          color: "var(--text-color2)",
         },
         priceChange1h: {
           value: `${displayData["CHANGEPCTHOUR"]}%`,
@@ -67,9 +57,14 @@ export default function CoinCard({ coin }) {
               : "var(--text-color3)"
           }`,
         },
+        circulatingSupply: {
+          value: `${displayData["CIRCULATINGSUPPLY"]}`,
+        },
         volume1h: {
           value: `${displayData["VOLUMEHOUR"]}`,
-          color: "var(--text-color2)",
+        },
+        volume24h: {
+          value: `${displayData["VOLUME24HOUR"]}`,
         },
       });
     });
@@ -86,6 +81,9 @@ export default function CoinCard({ coin }) {
         maxWidth: "400px",
         backgroundColor: "rgba(255, 255, 255, .04)",
         marginTop: "15px",
+      }}
+      onClick={() => {
+        location.assign(`/coin/${coin}`);
       }}
     >
       <Card.Header

@@ -16,6 +16,9 @@ export default function Index() {
           <CoinCard coin="LTC" />
           <CoinCard coin="XMR" />
           <CoinCard coin="BNB" />
+          <CoinCard coin="ADA" />
+          <CoinCard coin="SOL" />
+          <CoinCard coin="MATIC" />
           <CoinCard coin="XRP" />
           <CoinCard coin="DOGE" />
         </div>
