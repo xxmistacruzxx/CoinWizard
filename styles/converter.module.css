@@ -1,0 +1,38 @@
+.conversionRatesContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.conversionRatesContainer > div {
+  margin: 10px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  transition: background-color 200ms;
+}
+
+.conversionRatesContainer > div:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.conversionRatesContainer > div > div:first-child {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.conversionRatesContainer > div > div:first-child > img {
+  width: 32px;
+  aspect-ratio: 1/1;
+  margin-right: 5px;
+}
+
+.conversionRatesContainer > div > div:nth-child(2) > div {
+  margin-bottom: 3px;
+}
+
+.conversionRatesContainer > div > div:nth-child(2) > :nth-child(2n) {
+  color: rgba(255, 255, 255, 0.5);
+}
