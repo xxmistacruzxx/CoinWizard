@@ -1,3 +1,34 @@
+.converterContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.converterContainer > div {
+  margin: 20px;
+}
+
+.converterContainer > div label {
+  color: var(--text-color1);
+}
+
+.converterContainer > div > div > div {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.converterContainer > div > div > div > div {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.converterContainer > div input {
+  color: var(--text-color1);
+}
+
+.converterContainer > p {
+  font-size: 2em;
+}
+
 .conversionRatesContainer {
   display: flex;
   flex-direction: row;
@@ -6,6 +37,7 @@
 }
 
 .conversionRatesContainer > div {
+  width: 150px;
   margin: 10px;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.05);

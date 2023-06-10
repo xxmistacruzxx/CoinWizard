@@ -1,0 +1,10 @@
+.limits {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.limits > :first-child {
+  text-indent: 2em;
+}

@@ -11,6 +11,7 @@ export default function Header() {
         <a href="/">Coins</a>
         <a href="/converter">Converter</a>
         <a href="/address">Address Lookup</a>
+        <a href="/limits">Limits</a>
         <a href="/about">About</a>
       </div>
     </nav>
