@@ -24,10 +24,16 @@ export default function Address() {
   const [BTCResult, setBTCResult] = React.useState({});
   React.useEffect(() => {
     if (Object.keys(BTCResult).length === 0) return;
-    if (Object.keys(BTCResult).length === 2) {
+    if (Object.keys(BTCResult).length === 3) {
       setResult(
         <>
           <div>
+            <p>Coin: BTC</p>
+            <p style={{ fontSize: ".6em" }}>Address: {BTCResult.address}</p>
+            <p>Lookup Time: {BTCResult.lookupTime}</p>
+            <div
+              style={{ height: "3px", backgroundColor: "rgba(255,255,255,.5)" }}
+            ></div>
             <p>
               Error: The address "{`${BTCResult.address}`}" is either invalid or
               does not exist.
@@ -58,6 +64,72 @@ export default function Address() {
     );
   }, [BTCResult]);
 
+  const [ETHResult, setETHResult] = React.useState({});
+  React.useEffect(() => {
+    if (Object.keys(ETHResult).length === 0) return;
+    if (Object.keys(ETHResult).length === 3) {
+      setResult(
+        <>
+          <div>
+            <p>Coin: ETH</p>
+            <p style={{ fontSize: ".6em" }}>Address: {ETHResult.address}</p>
+            <p>Lookup Time: {ETHResult.lookupTime}</p>
+            <div
+              style={{ height: "3px", backgroundColor: "rgba(255,255,255,.5)" }}
+            ></div>
+            <p>
+              Error: The address "{`${ETHResult.address}`}" is either invalid or
+              does not exist.
+            </p>
+          </div>
+          {result}
+        </>
+      );
+      return;
+    }
+
+    setResult(
+      <>
+        <div>
+          <p>Coin: {ETHResult.coinType}</p>
+          <p style={{ fontSize: ".6em" }}>Address: {ETHResult.address}</p>
+          <p>Lookup Time: {ETHResult.lookupTime}</p>
+          <div
+            style={{ height: "3px", backgroundColor: "rgba(255,255,255,.5)" }}
+          ></div>
+          <p>Amount ETH: {ETHResult.amount}</p>
+          {(() => {
+            if (ETHResult.lastBlockData.length === 0)
+              return <p>Last Block Mined: N/A</p>;
+            else
+              return (
+                <>
+                  <p>
+                    Last Block Mined:{" "}
+                    {`${ETHResult.lastBlockData[0].blockNumber}`}
+                  </p>
+                  <p>
+                    Time Mined:{" "}
+                    {`${new Date(
+                      ETHResult.lastBlockData[0].timeStamp * 1000
+                    ).toLocaleString("en-US")}`}
+                  </p>
+                  <p>
+                    Block Reward:{" "}
+                    {`${
+                      Number(ETHResult.lastBlockData[0].blockReward) /
+                      Math.pow(10, 18)
+                    }`}
+                  </p>
+                </>
+              );
+          })()}
+        </div>
+        {result}
+      </>
+    );
+  }, [ETHResult]);
+
   function BTCLookup() {
     let address = $(`#addressInput`)[0].value.trim();
 
@@ -74,7 +146,6 @@ export default function Address() {
       axios.get(`https://blockchain.info/q/addressfirstseen/${address}`),
     ];
 
-    let result;
     Promise.all(requests)
       .then(
         ([
@@ -99,13 +170,43 @@ export default function Address() {
         }
       )
       .catch((error) => {
-        setBTCResult({ address: address, error: `${error}` });
+        setBTCResult({
+          address: address,
+          lookupTime: new Date().toTimeString(),
+          error: `${error}`,
+        });
       });
 
     return;
   }
 
-  function ETHLookup() {}
+  function ETHLookup() {
+    let address = $(`#addressInput`)[0].value.trim();
+
+    const requests = [axios.get(`/api/ethaddress/${address}`)];
+
+    Promise.all(requests)
+      .then(([response]) => {
+        const newETHResult = {
+          coinType: "ETH",
+          address: address,
+          lookupTime: new Date().toTimeString(),
+          amount: response.data.amount,
+          lastBlockData: response.data.lastBlockData,
+        };
+
+        setETHResult(newETHResult);
+      })
+      .catch((error) => {
+        setETHResult({
+          address: address,
+          lookupTime: new Date().toTimeString(),
+          error: `${error}`,
+        });
+      });
+
+    return;
+  }
 
   function Lookup() {
     switch (Array.from(currCoin).join("")) {
@@ -113,12 +214,7 @@ export default function Address() {
         BTCLookup();
         break;
       case "ETH":
-        setResult(
-          <>
-            {result}
-            {ETHLookup()}
-          </>
-        );
+        ETHLookup();
         break;
       default:
         console.log("NO COIN FOUND");
